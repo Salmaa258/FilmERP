@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Recuperar Contrasenya</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <img src="/imatges/logo.png" alt="Logo" width="130" height="110"/>
+        <h1>RECUPERAR CONTRASENYA</h1>
+
+        <form th:action="" method="post">
+        <label>Introdueix el teu correu electrònic per poder recuperar la teva contrasenya<label>
+                <br>
+                <input type="email" id="email" name="email">
+                <br>
+                <a th:href="@{/login}"><button>Cancelar</button></a>
+                <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

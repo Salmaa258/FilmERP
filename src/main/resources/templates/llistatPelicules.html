@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Pel·lícules</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table border="0">
+            <tr>
+                <td>
+                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                </td>
+                <td>
+                    <img src="/imatges/home.png" alt="Home" width="75" height="75"/>
+                </td>
+                <td align="center">
+                    <a th:href="@{/afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
+                </td>
+                <td width="1420" align="right">
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td> 
+                <td align="center">
+                    <label>Inici</label>
+                </td>
+                <td>
+                    <label>Afegir pel·lícules</label>
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h1>PEL·LÍCULES</h1>
+
+
+        <img src="/imatges/filtro.png" alt="Home" width="45" height="45" >
+        <label for="search">Títol:</label>
+        
+        <form th:action="" method="post">
+            <input type="text" id="search" name="search">
+
+            <label for="options">Gènere:</label>
+            <select id="options" name="options[]" >
+                <option value="accio">Acció</option>
+                <option value="aventura">Aventura</option>
+                <option value="cienciaFiccio">Ciencia Ficció</option>
+                <option value="comedia">Comedia</option>
+                <option value="drama">Drama</option>
+                <option value="fantasia">Fantasia</option>
+                <option value="musical">Musical</option>
+                <option value="suspense">Suspense</option>
+                <option value="terror">Terror</option>
+            </select>
+            <input type="submit" value="Filtrar">
+        </form>
+        
+        <br><br><br>
+
+        <a th:href="@{/infoPelicules}">
+            <table border="1">
+                <tr>
+                    <td align="center">
+                        <img src="/imatges/pelicula.png" alt="Portada pelicula" width="100" height="100" >
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Títol de la pel·lícula</label></td>
+                </tr>
+            </table>
+        </a>
+
+    </body>
+</html>

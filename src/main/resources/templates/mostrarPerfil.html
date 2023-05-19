@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Mostrar Perfil</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table>
+            <tr>
+                <td>
+                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                </td>
+                <td width="1610" align="right">
+                    <img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <h1>PERFIL</h1>
+
+        <table border="0" width="30%">
+            <tr>
+                <td rowspan="2" >
+                    <img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="85" height="85"/>
+                </td>
+                <td>
+                    <label>Nom usuari</label>
+                </td>
+                <td align="right">
+                    <a th:href="@{/editarPerfil}"><img src="/imatges/editar.png" alt="Botó editar" width="38" height="38"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/imatges/phone.png" alt="Telèfon" width="25" height="25"/>
+                    <label>666666666</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Nom</h3>
+                </td>
+                <td>
+                    <label>Nom</label>
+                </td>
+                <td>
+                    <h3>Sexe</h3>
+                </td>
+                <td>
+                    <label>sexe</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Cognoms</h3>
+                </td>
+                <td>
+                    <label>Cognoms</label>
+                </td>
+                <td>
+                    <h3>Pel·lícula Dirigida</h3>
+                </td>
+                <td>
+                    <label>null</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Correu electrònic</h3>
+                </td>
+                <td>
+                    <label>correu@gmail.com</label>
+                </td>
+                <td>
+                    <h3>Pel·lícula Escrita</h3>
+                </td>
+                <td>
+                    <label>null</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Edad</h3>
+                </td>
+                <td>
+                    <label>23</label>
+                </td>
+                <td>
+                    <h3>Pel·lícula Realitzada</h3>
+                </td>
+                <td>
+                    <label>null</label>
+                </td>
+            </tr>
+        </table>
+
+
+    </body>
+</html>

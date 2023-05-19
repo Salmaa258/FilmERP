@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Pel·lícules</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table border="0">
+            <tr>
+                <td>
+                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                </td>
+                <td>
+                    <a th:href="@{/llistatPelicules}"><img src="/imatges/home.png" alt="Home" width="75" height="75"/></a>
+                </td>
+                <td align="center">
+                    <a th:href="@{/afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
+                </td>
+                <td width="1420" align="right">
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                </td> 
+                <td align="center">
+                    <label>Inici</label>
+                </td>
+                <td>
+                    <label>Afegir pel·lícules</label>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        
+        <table cellspacing="10">
+            <tr>
+                <td>
+                    <img src="/imatges/pelicula.png" alt="Portada Pelicula" width="130" height="130"/>
+                </td>
+                <td>
+                    <h2>Títol Pel·lícula</h2>
+                    <label>Sinopsi pel·lícula</label>
+                </td>
+                <td>
+                    <a th:href="@{/editarPelicules}"><img src="/imatges/editar.png" alt="Botó editar" width="38" height="38" align="right"></a>
+                </td>
+                <td>
+                    <img src="/imatges/delete.png" alt="Botó eliminar" width="38" height="38">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Gènere:</h2>
+                    <label>Generes</label>
+                </td>
+                <td>
+                    <h2>Any d'estrena:</h2>
+                    <label>Any d'estrena</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Fitxa Tècnica:</h2>
+                    <h3>Director:</h3>
+                    <label>Nom director</label>
+                </td>
+                <td valign="bottom">
+                    <h3>Guió:</h3>
+                    <label>Nom guionista</label>
+                </td>
+                <td valign="bottom">
+                    <h3>Protagonistes:</h3>
+                    <label>Nom actor</label>
+                    <br>
+                    <label>Nom actor</label>
+                    <br>
+                    <label>Nom actor</label>
+                </td>
+            </tr>
+        </table>
+        
+    </body>
+</html>

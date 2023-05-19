@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Directors</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table border="0">
+            <tr>
+                <td>
+                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                </td>
+                <td>
+                    <img src="/imatges/director.png" alt="Director" width="65" height="65"/>
+                </td>
+                <td align="center">
+                    <a th:href="@{/llistatGuionistes}"><img src="/imatges/guionista.png" alt="Guionista" width="65" height="65"/></a>
+                </td>
+                <td align="center">
+                    <a th:href="@{/llistatActors}"><img src="/imatges/actor.png" alt="Actor" width="85" height="85"/></a>
+                </td>
+                <td width="1385" align="right">
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                    
+                </td> 
+                <td >
+                    <label>Director</label>
+                </td>
+                <td>
+                    <label>Guionista</label>
+                </td>
+                <td>
+                    <label>Actor</label>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        
+        <h1>DIRECTORS <a th:href="@{/afegirDirectors}"><img src="/imatges/anadir.png" alt="afegir" width="40" height="40" ></a> </h1>
+        
+        
+        <table border="1" width="700">
+            <tr align="center">
+                <td>
+                    <h4>Nom</h4>
+                </td>
+                <td>
+                    <h4>Cognoms</h4>
+                </td>
+                <td>
+                    <h4>Correu electrònic</h4>
+                </td>
+                <td>
+                    <h4>Edad</h4>
+                </td>
+                <td>
+                    <h4>Sexe</h4>
+                </td>
+                <td>
+                    <h4>Telèfon</h4>
+                </td>
+                <td>
+                    <h4>Pel·lícula</h4>
+                </td>
+            </tr> 
+            <tr align="center">
+                <td>
+                    <label>Nom director</label>
+                </td>
+                <td>
+                    <label>Cognoms director</label>
+                </td>
+                <td>
+                    <label>director@gmail.com</label>
+                </td>
+                <td>
+                    <label>Edad director</label>
+                </td>
+                <td>
+                    <label>Sexe director</label>
+                </td>
+                <td>
+                    <label>666666666</label>
+                </td>
+                <td>
+                    <label>Peli director</label>
+                </td>
+                <td>
+                    <a th:href="@{/editarDirectors}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
+                </td>
+                <td>
+                    <img src="/imatges/delete.png" alt="eliminar" width="35" height="35">
+                </td>
+            </tr> 
+        </table>
+        
+    </body>
+</html>

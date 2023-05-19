@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inici de sessió</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <img src="/imatges/logo.png" alt="Logo" width="130" height="110"/>
+        <h1>LOGIN</h1>
+
+        <form th:action="" method="post">
+            <label for="username">Usuari:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Contrasenya:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <a th:href="@{/recuperarContra}"><label>Has oblidat la contrasenya?</label></a>
+            <br>
+            <a href="moduls"><button>Iniciar Sessió</button></a>
+        </form>
+    </body>
+</html>

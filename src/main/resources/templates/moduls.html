@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"> 
+    <head>
+        <title>Mòduls</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table>
+            <tr>
+                <td>
+                    <img src="/imatges/logo.png" alt="Logo" width="130" height="110"/>
+                </td>
+                <td width="1610" align="right">
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+            </tr>
+        </table>
+        <hr>    
+        
+        <br>
+        <label>Selecciona el mòduls que vulguis visualitzar<label>
+        <br><br>
+        <a th:href="@{/llistatPelicules}"><button>Mòdul pel·lícules</button></a>
+        <br><br>
+        <a th:href="@{/llistatDirectors}"><button>Mòdul usuaris</button></a>       
+        <a th:href="@{/activarDesactivarModuls}"><button>Mòdul ERP</button></a>     
+    </body>
+</html>

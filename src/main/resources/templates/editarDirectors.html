@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Modificar Directors</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table border="0">
+            <tr>
+                <td>
+                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                </td>
+                <td>
+                    <a th:href="@{/llistatDirectors}"><img src="/imatges/director.png" alt="Director" width="65" height="65"/></a>
+                </td>
+                <td align="center">
+                    <img src="/imatges/guionista.png" alt="Guionista" width="65" height="65" >
+                </td>
+                <td align="center">
+                    <a th:href="@{/llistatActors}"><img src="/imatges/actor.png" alt="Actor" width="85" height="85"/></a>
+                </td>
+                <td width="1385" align="right">
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+
+                </td> 
+                <td >
+                    <label>Director</label>
+                </td>
+                <td>
+                    <label>Guionista</label>
+                </td>
+                <td>
+                    <label>Actor</label>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <h1>MODIFICAR DIRECTORS</h1>
+        <form th:action="" method="post">
+            <table width="700">
+                <tr align="center">
+                    <td>
+                        <h4>Nom</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="nom" name="nom">
+                    </td>
+                    <td>
+                        <h4>Sexe</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="sexe" name="sexe">
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <h4>Cognoms</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="cognom" name="cognom">
+                    </td>
+                    <td>
+                        <h4>Telèfon</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="telefon" name="telefon">
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <h4>Correu electrònic</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="correu" name="correu">
+                    </td>
+                    <td>
+                        <h4>Pel·lícula dirigida</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="pelDirigida" name="pelDirigida">
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <h4>Edad</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="edad" name="edad">
+                    </td>
+                </tr>
+            </table>
+
+            <br> 
+            <a th:href="@{/llistatDirectors}"><button>Cancelar</button></a>
+            <button>Crear</button>
+        </form>
+    </body>
+</html>

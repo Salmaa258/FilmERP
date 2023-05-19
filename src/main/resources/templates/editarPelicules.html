@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Modificar pel·lícula</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!-- Menú superior -->
+        <table border="0">
+            <tr>
+                <td>
+                    <a th:href="@{moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                </td>
+                <td>
+                    <a th:href="@{llistatPelicules}"><img src="/imatges/home.png" alt="Home" width="75" height="75"/></a>
+                </td>
+                <td align="center">
+                    <a th:href="@{afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
+                </td>
+                <td width="1420" align="right">
+                    <a th:href="@{mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td> 
+                <td align="center">
+                    <label>Inici</label>
+                </td>
+                <td>
+                    <label>Afegir pel·lícules</label>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <h1>MODIFICAR PEL·LÍCULES</h1>
+        <form th:action="" method="post">
+            <table cellspacing="10">
+                <tr>
+                    <td>
+                        <img src="/imatges/pelicula.png" alt="Portada Pelicula" width="130" height="130"/>
+                    </td>
+                    <td>
+                        <h2>Títol</h2>
+                        <h2>Sinopsi</h2>
+                    </td>
+                    <td>
+                        <input type="text" id="titol" name="titol">
+                        <br><br>
+                        <input type="text" id="sinopsi" name="sinopsi">
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h2>Gènere:</h2>
+                        <input type="text" id="generes" name="generes">
+                    </td>
+                    <td>
+                        <h2>Any d'estrena:</h2>
+                        <input type="number" id="any" name="any">
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <br> 
+            <a th:href="@{llistatPelicules}"><button>Cancelar</button></a>
+            <button>Modificar</button>
+        </form>
+    </body>
+</html>
