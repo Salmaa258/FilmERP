@@ -45,7 +45,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         <img src="/imatges/filtro.png" alt="Home" width="45" height="45" >
         <label for="search">Títol:</label>
-        
+
         <form th:action="" method="post">
             <input type="text" id="search" name="search">
 
@@ -63,18 +63,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </select>
             <input type="submit" value="Filtrar">
         </form>
-        
+
         <br><br><br>
 
         <a th:href="@{/infoPelicules}">
-            <table border="1">
+            <!--Mostramos las peliculas, la imagen encima del titulo, una pelicula al lado de la otra (vistas en horizontal) -->
+            <table>
                 <tr>
-                    <td align="center">
-                        <img src="/imatges/pelicula.png" alt="Portada pelicula" width="100" height="100" >
+                <th:block th:each="pelicula : ${pelicules}">
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td align="center">
+                                    <img src="/imatges/pelicula.png" alt="Portada pelicula" width="100" height="100">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td th:text="${pelicula.titol}"></td>
+                            </tr>
+                        </table>
                     </td>
-                </tr>
-                <tr>
-                    <td><label>Títol de la pel·lícula</label></td>
+                </th:block>
                 </tr>
             </table>
         </a>

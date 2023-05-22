@@ -73,28 +73,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <h4>Pel·lícula</h4>
                 </td>
             </tr> 
-            <tr align="center">
-                <td>
-                    <label>Nom guionista</label>
-                </td>
-                <td>
-                    <label>Cognoms guionista</label>
-                </td>
-                <td>
-                    <label>guionista@gmail.com</label>
-                </td>
-                <td>
-                    <label>Edad guionista</label>
-                </td>
-                <td>
-                    <label>Sexe guionista</label>
-                </td>
-                <td>
-                    <label>666666666</label>
-                </td>
-                <td>
-                    <label>Peli guionista</label>
-                </td>
+            <tr align="center" th:each="guionista : ${guionistes}">
+                    <td th:text="${guionista.nom}"></td>
+                    <td th:text="${guionista.cognoms}"></td>
+                    <td th:text="${guionista.correu}"></td>
+                    <td th:text="${guionista.edad}"></td>
+                    <td th:text="${guionista.sexe}"></td>
+                    <td th:text="${guionista.telefon}"></td>
+                    <td th:text="${guionista.pelGuiada}"></td>
                 <td>
                    <a th:href="@{/editarGuionistes}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
                 </td>

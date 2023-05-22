@@ -73,28 +73,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <h4>Pel·lícula</h4>
                 </td>
             </tr> 
-            <tr align="center">
-                <td>
-                    <label>Nom actor</label>
-                </td>
-                <td>
-                    <label>Cognoms actor</label>
-                </td>
-                <td>
-                    <label>actor@gmail.com</label>
-                </td>
-                <td>
-                    <label>Edad actor</label>
-                </td>
-                <td>
-                    <label>Sexe actor</label>
-                </td>
-                <td>
-                    <label>666666666</label>
-                </td>
-                <td>
-                    <label>Peli actor</label>
-                </td>
+            <tr align="center" th:each="actor : ${actors}">
+                    <td th:text="${actor.nom}"></td>
+                    <td th:text="${actor.cognoms}"></td>
+                    <td th:text="${actor.correu}"></td>
+                    <td th:text="${actor.edad}"></td>
+                    <td th:text="${actor.sexe}"></td>
+                    <td th:text="${actor.telefon}"></td>
+                    <td th:text="${actor.pelRealitzada}"></td>
                 <td>
                     <a th:href="@{/editarActors}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
                 </td>
