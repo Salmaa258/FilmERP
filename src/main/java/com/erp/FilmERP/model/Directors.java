@@ -7,6 +7,7 @@ package com.erp.FilmERP.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -17,7 +18,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "directors")
-public class Directors extends Usuari{
+public class Directors extends Usuari implements Serializable{
     @Column(name = "pelDirigida")
     private String pelDirigida;
 }

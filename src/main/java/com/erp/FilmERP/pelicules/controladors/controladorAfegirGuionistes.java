@@ -4,8 +4,16 @@
  */
 package com.erp.FilmERP.pelicules.controladors;
 
+import com.erp.FilmERP.model.Directors;
+import com.erp.FilmERP.model.Guionistes;
+import com.erp.FilmERP.serveis.guionistes.GuionistaService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -13,8 +21,28 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class controladorAfegirGuionistes {
+    
+    @Autowired
+    private GuionistaService guionistaService;
+    
     @GetMapping("/afegirGuionistes")
-    public String inici() {
+    public String inici(Model model) {
+        
+        model.addAttribute("guionistes", guionistaService.llistarGuionistes());     
+        
         return "afegirGuionistes";
     }
+    
+    @PostMapping("/guardarGuionistes") //action=guardarGuionistes
+    public String guardarGuionistes(@Valid Guionistes guionista, Errors errors) {
+
+        if (errors.hasErrors()) { //Si s'han produït errors...
+            return "afegirGuionistes"; //Mostrem la pàgina del formulari
+        }
+
+        guionistaService.afegirGuionista(guionista); //Afegim el guionista passat per paràmetre a la base de dades
+
+        return "redirect:/llistatGuionistes"; //Retornem a la pàgina inicial dels guionistes mitjançant redirect
+    }
+    
 }

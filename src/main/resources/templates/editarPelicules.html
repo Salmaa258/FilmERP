@@ -13,16 +13,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <table border="0">
             <tr>
                 <td>
-                    <a th:href="@{moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
+                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
                 </td>
                 <td>
-                    <a th:href="@{llistatPelicules}"><img src="/imatges/home.png" alt="Home" width="75" height="75"/></a>
+                    <a th:href="@{/llistatPelicules}"><img src="/imatges/home.png" alt="Home" width="75" height="75"/></a>
                 </td>
                 <td align="center">
-                    <a th:href="@{afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
+                    <a th:href="@{/afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
                 </td>
                 <td width="1420" align="right">
-                    <a th:href="@{mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
                 </td>
             </tr>
             <tr>
@@ -33,14 +33,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <label>Inici</label>
                 </td>
                 <td>
-                    <label>Afegir pel·lícules</label>
+                    <a th:href="@{/afegirPelicules}"><label>Afegir pel·lícules</label></a>
                 </td>
             </tr>
         </table>
         <hr>
 
         <h1>MODIFICAR PEL·LÍCULES</h1>
-        <form th:action="" method="post">
+        <form th:action="@{/guardarPelicules}" method="post" th:object="${pelicules}">
             <table cellspacing="10">
                 <tr>
                     <td>
@@ -51,9 +51,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <h2>Sinopsi</h2>
                     </td>
                     <td>
-                        <input type="text" id="titol" name="titol">
+                        <input type="text" id="titol" name="titol" th:field="*{titol}">
                         <br><br>
-                        <input type="text" id="sinopsi" name="sinopsi">
+                        <input type="text" id="sinopsi" name="sinopsi" th:field="*{sinopsi}">
                     </td>
                 </tr>
             </table>
@@ -61,11 +61,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <tr>
                     <td>
                         <h2>Gènere:</h2>
-                        <input type="text" id="generes" name="generes">
+                        <input type="text" id="genere" name="genere" th:field="*{genere}">
                     </td>
                     <td>
                         <h2>Any d'estrena:</h2>
-                        <input type="number" id="any" name="any">
+                        <input type="number" id="any" name="any" th:field="*{any}">
                     </td>
 
                 </tr>
@@ -74,7 +74,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <br> 
             <a th:href="@{llistatPelicules}"><button>Cancelar</button></a>
-            <button>Modificar</button>
+            <input type="submit" name="editar" value="Editar"/>
         </form>
     </body>
 </html>

@@ -83,10 +83,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${director.telefon}"></td>
                     <td th:text="${director.pelDirigida}"></td>
                     <td>
-                        <a th:href="@{/editarDirectors}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
+                        <a th:href="@{/editar/}+${director.correu}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
                     </td>
                     <td>
-                        <img src="/imatges/delete.png" alt="eliminar" width="35" height="35">
+                        <!--Eliminem l'usuari Director segons el correu del usuari seleccionat-->
+                        <a th:href="@{/eliminar/}+${director.correu}"><img src="/imatges/delete.png" alt="eliminar" width="35" height="35"></a>
                     </td>
                 </tr> 
             </table>

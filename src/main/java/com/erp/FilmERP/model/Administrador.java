@@ -6,6 +6,7 @@ package com.erp.FilmERP.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -15,6 +16,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "administrador")
-public class Administrador extends Usuari {
+public class Administrador extends Usuari implements Serializable{
     
 }

@@ -48,32 +48,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         <h1>ACTORS <a th:href="@{/afegirActors}"><img src="/imatges/anadir.png" alt="afegir" width="40" height="40" ></a> </h1>
 
+        <div th:if="${actors!=null && !actors.empty}">
 
-        <table border="1" width="700">
-            <tr align="center">
-                <td>
-                    <h4>Nom</h4>
-                </td>
-                <td>
-                    <h4>Cognoms</h4>
-                </td>
-                <td>
-                    <h4>Correu electrònic</h4>
-                </td>
-                <td>
-                    <h4>Edad</h4>
-                </td>
-                <td>
-                    <h4>Sexe</h4>
-                </td>
-                <td>
-                    <h4>Telèfon</h4>
-                </td>
-                <td>
-                    <h4>Pel·lícula</h4>
-                </td>
-            </tr> 
-            <tr align="center" th:each="actor : ${actors}">
+            <table border="1" width="700">
+                <tr align="center">
+                    <td>
+                        <h4>Nom</h4>
+                    </td>
+                    <td>
+                        <h4>Cognoms</h4>
+                    </td>
+                    <td>
+                        <h4>Correu electrònic</h4>
+                    </td>
+                    <td>
+                        <h4>Edad</h4>
+                    </td>
+                    <td>
+                        <h4>Sexe</h4>
+                    </td>
+                    <td>
+                        <h4>Telèfon</h4>
+                    </td>
+                    <td>
+                        <h4>Pel·lícula</h4>
+                    </td>
+                </tr> 
+                <tr align="center" th:each="actor : ${actors}">
                     <td th:text="${actor.nom}"></td>
                     <td th:text="${actor.cognoms}"></td>
                     <td th:text="${actor.correu}"></td>
@@ -81,14 +82,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${actor.sexe}"></td>
                     <td th:text="${actor.telefon}"></td>
                     <td th:text="${actor.pelRealitzada}"></td>
-                <td>
-                    <a th:href="@{/editarActors}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
-                </td>
-                <td>
-                    <img src="/imatges/delete.png" alt="eliminar" width="35" height="35">
-                </td>
-            </tr> 
-        </table>
-
+                    <td>
+                        <a th:href="@{/editarActors/}+${actor.correu}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/eliminarActors/}+${actor.correu}"><img src="/imatges/delete.png" alt="eliminar" width="35" height="35"></a>
+                    </td>
+                </tr> 
+            </table>
+        </div>
     </body>
 </html>

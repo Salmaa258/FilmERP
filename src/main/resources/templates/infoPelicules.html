@@ -33,36 +33,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <label>Inici</label>
                 </td>
                 <td>
-                    <label>Afegir pel·lícules</label>
+                    <a th:href="@{/afegirPelicules}"><label>Afegir pel·lícules</label></a>
                 </td>
             </tr>
         </table>
         <hr>
         
-        <table cellspacing="10">
-            <tr>
+        <table cellspacing="10" border="0">
+            <tr th:each="pelicula : ${pelicules}">
                 <td>
                     <img src="/imatges/pelicula.png" alt="Portada Pelicula" width="130" height="130"/>
                 </td>
                 <td>
-                    <h2>Títol Pel·lícula</h2>
-                    <label>Sinopsi pel·lícula</label>
+                    <h2>Títol:</h2>
+                    <td th:text="${pelicula.titol}"></td>
                 </td>
                 <td>
-                    <a th:href="@{/editarPelicules}"><img src="/imatges/editar.png" alt="Botó editar" width="38" height="38" align="right"></a>
+                    <a th:href="@{/editarPelis/}+${pelicula.titol}"><img src="/imatges/editar.png" alt="Botó editar" width="38" height="38" align="right"></a>
                 </td>
                 <td>
-                    <img src="/imatges/delete.png" alt="Botó eliminar" width="38" height="38">
+                    <a th:href="@{/eliminarPeli/}+${pelicula.titol}"><img src="/imatges/delete.png" alt="Botó eliminar" width="38" height="38"></a>
                 </td>
             </tr>
-            <tr>
+            <tr th:each="pelicula : ${pelicules}">
+                <td>
+                    <h2>Sinopsi:</h2>
+                    <td th:text="${pelicula.sinopsi}"></td>
+                </td>
+                
+            </tr>
+            <tr th:each="pelicula : ${pelicules}">
                 <td>
                     <h2>Gènere:</h2>
-                    <label>Generes</label>
+                    <td th:text="${pelicula.genere}"></td>
                 </td>
                 <td>
                     <h2>Any d'estrena:</h2>
-                    <label>Any d'estrena</label>
+                    <td th:text="${pelicula.any}"></td>
                 </td>
             </tr>
             <tr>

@@ -47,7 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <hr>
 
         <h1>AFEGIR GUIONISTES</h1>
-        <form th:action="" method="post">
+        <form th:action="@{/guardarGuionistes}" method="post" th:object="${guionista}">
             <table width="700">
                 <tr align="center">
                     <td>
@@ -68,7 +68,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <h4>Cognoms</h4>
                     </td>
                     <td>
-                        <input type="text" id="cognom" name="cognom">
+                        <input type="text" id="cognoms" name="cognoms">
                     </td>
                     <td>
                         <h4>Telèfon</h4>
@@ -102,8 +102,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </table>
 
             <br> 
-            <a th:href="@{/llistatGuionistes}"><button>Cancelar</button></a>
-            <button>Crear</button>
+            
+            <!-- Botó per enviar les dades-->
+            <input type="submit" name="crear" value="Crear"/>
         </form>
+        <a th:href="@{/llistatGuionistes}"><button>Cancelar</button></a>
     </body>
 </html>

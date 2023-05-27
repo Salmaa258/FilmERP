@@ -31,7 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </tr>
             <tr align="center">
                 <td>
-                    
+
                 </td> 
                 <td >
                     <label>Director</label>
@@ -45,35 +45,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </tr>
         </table>
         <hr>
-        
+
         <h1>GUIONISTES <a th:href="@{/afegirGuionistes}"><img src="/imatges/anadir.png" alt="afegir" width="40" height="40" ></a> </h1>
-        
-        
-        <table border="1" width="700">
-            <tr align="center">
-                <td>
-                    <h4>Nom</h4>
-                </td>
-                <td>
-                    <h4>Cognoms</h4>
-                </td>
-                <td>
-                    <h4>Correu electrònic</h4>
-                </td>
-                <td>
-                    <h4>Edad</h4>
-                </td>
-                <td>
-                    <h4>Sexe</h4>
-                </td>
-                <td>
-                    <h4>Telèfon</h4>
-                </td>
-                <td>
-                    <h4>Pel·lícula</h4>
-                </td>
-            </tr> 
-            <tr align="center" th:each="guionista : ${guionistes}">
+
+        <div th:if="${guionistes!=null && !guionistes.empty}">
+
+            <table border="1" width="700">
+                <tr align="center">
+                    <td>
+                        <h4>Nom</h4>
+                    </td>
+                    <td>
+                        <h4>Cognoms</h4>
+                    </td>
+                    <td>
+                        <h4>Correu electrònic</h4>
+                    </td>
+                    <td>
+                        <h4>Edad</h4>
+                    </td>
+                    <td>
+                        <h4>Sexe</h4>
+                    </td>
+                    <td>
+                        <h4>Telèfon</h4>
+                    </td>
+                    <td>
+                        <h4>Pel·lícula</h4>
+                    </td>
+                </tr> 
+                <tr align="center" th:each="guionista : ${guionistes}">
                     <td th:text="${guionista.nom}"></td>
                     <td th:text="${guionista.cognoms}"></td>
                     <td th:text="${guionista.correu}"></td>
@@ -81,14 +82,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${guionista.sexe}"></td>
                     <td th:text="${guionista.telefon}"></td>
                     <td th:text="${guionista.pelGuiada}"></td>
-                <td>
-                   <a th:href="@{/editarGuionistes}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
-                </td>
-                <td>
-                    <img src="/imatges/delete.png" alt="eliminar" width="35" height="35">
-                </td>
-            </tr> 
-        </table>
-        
+                    <td>
+                        <a th:href="@{/editarGuionista/}+${guionista.correu}"><img src="/imatges/editar.png" alt="editar" width="35" height="35"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/eliminarGuionistes/}+${guionista.correu}"><img src="/imatges/delete.png" alt="eliminar" width="35" height="35"></a>
+                    </td>
+                </tr> 
+            </table>
+        </div>
     </body>
 </html>
