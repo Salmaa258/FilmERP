@@ -7,6 +7,7 @@ package com.erp.FilmERP.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import lombok.Data;
 
@@ -17,8 +18,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "directors")
+//@Table(name = "usuari")
 public class Directors extends Usuari implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    
     @Column(name = "pelDirigida")
+    @NotEmpty
     private String pelDirigida;
 }

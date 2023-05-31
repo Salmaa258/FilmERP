@@ -8,6 +8,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import java.io.Serializable;
 import lombok.Data;
 
@@ -22,14 +24,18 @@ import lombok.Data;
 public class Pelicules implements Serializable{
     @Id
     @Column(name = "titol")
+    @NotEmpty
     private String titol;
     
     @Column(name = "sinopsi")
+    @NotEmpty
     private String sinopsi;
     
     @Column(name = "genere")
+    @NotEmpty
     private String genere;
     
     @Column(name = "any")
-    private int any;
+    @Pattern(regexp = "[0-9]{4}$")
+    private String any;
 }

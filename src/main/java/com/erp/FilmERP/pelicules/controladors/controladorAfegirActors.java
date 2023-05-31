@@ -9,6 +9,7 @@ import com.erp.FilmERP.model.Directors;
 import com.erp.FilmERP.serveis.actors.ActorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -26,9 +27,9 @@ public class controladorAfegirActors {
     private ActorService actorService;
     
     @GetMapping("/afegirActors")
-    public String inici(Model model) {
+    public String inici(Model model, Actors actors) {
         
-        model.addAttribute("actors", actorService.llistarActor());    
+        model.addAttribute("actor", actorService.llistarActor());    
         
         return "afegirActors";
     }
@@ -39,6 +40,28 @@ public class controladorAfegirActors {
         if (errors.hasErrors()) { //Si s'han produït errors...
             return "afegirActors"; //Mostrem la pàgina del formulari
         }
+        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        
+        String a = encoder.encode(actors.getPassword());
+        actors.setPassword(a);
+
+        actorService.afegirActor(actors); //Afegim el actor passat per paràmetre a la base de dades
+
+        return "redirect:/llistatActors"; //Retornem a la pàgina inicial dels actors mitjançant redirect
+    }
+    
+    @PostMapping("/guardarActor") //action=guardarActors
+    public String guardarActor(@Valid Actors actors, Errors errors) {
+
+        if (errors.hasErrors()) { //Si s'han produït errors...
+            return "editarActors"; //Mostrem la pàgina del formulari
+        }
+        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        
+        String a = encoder.encode(actors.getPassword());
+        actors.setPassword(a);
 
         actorService.afegirActor(actors); //Afegim el actor passat per paràmetre a la base de dades
 

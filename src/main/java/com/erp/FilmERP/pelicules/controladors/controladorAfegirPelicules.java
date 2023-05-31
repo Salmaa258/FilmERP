@@ -26,9 +26,9 @@ public class controladorAfegirPelicules {
     private PeliculaService peliculaService;
     
     @GetMapping("/afegirPelicules")
-    public String inici(Model model) {
+    public String inici(Model model, Pelicules pelicula) {
         
-        model.addAttribute("pelicules", peliculaService.llistarPelicula());     
+        model.addAttribute("pelicula", peliculaService.llistarPelicula());     
         
         return "afegirPelicules";
     }
@@ -38,6 +38,18 @@ public class controladorAfegirPelicules {
 
         if (errors.hasErrors()) { //Si s'han produït errors...
             return "afegirPelicules"; //Mostrem la pàgina del formulari
+        }
+
+        peliculaService.afegirPelicula(pelicula); //Afegim la pelicula passada per paràmetre a la base de dades
+
+        return "redirect:/llistatPelicules"; //Retornem a la pàgina inicial de les pelicules mitjançant redirect
+    }
+    
+    @PostMapping("/guardarPelicula") //action=guardarPelicules
+    public String guardarPelicula(@Valid Pelicules pelicula, Errors errors) {
+
+        if (errors.hasErrors()) { //Si s'han produït errors...
+            return "editarPelicules"; //Mostrem la pàgina del formulari
         }
 
         peliculaService.afegirPelicula(pelicula); //Afegim la pelicula passada per paràmetre a la base de dades

@@ -11,43 +11,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <!-- Menú superior -->
-        <table border="0">
-            <tr>
-                <td>
-                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
-                </td>
-                <td>
-                    <a th:href="@{/llistatDirectors}"><img src="/imatges/director.png" alt="Director" width="65" height="65"/></a>
-                </td>
-                <td align="center">
-                    <a th:href="@{/llistatGuionistes}"><img src="/imatges/guionista.png" alt="Guionista" width="65" height="65"/></a>
-                </td>
-                <td align="center">
-                    <a th:href="@{/llistatActors}"><img src="/imatges/actor.png" alt="Actor" width="85" height="85"/></a>
-                </td>
-                <td width="1385" align="right">
-                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>
-
-                </td> 
-                <td >
-                    <label>Director</label>
-                </td>
-                <td>
-                    <label>Guionista</label>
-                </td>
-                <td>
-                    <label>Actor</label>
-                </td>
-            </tr>
-        </table>
+        <!--Establim la plantilla creada-->
+        <header th:replace="~{layout/plantilla :: capcaleraUsuaris}" />
         <hr>
 
         <h1>MODIFICAR GUIONISTES</h1>
-        <form th:action="@{/guardarGuionistes}" method="post" th:object="${guionistes}">
+        <form th:action="@{/guardarGuionista}" method="post" th:object="${guionistes}">
             <table width="700">
                 <tr align="center">
                     <td>
@@ -55,12 +24,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </td>
                     <td>
                         <input type="text" id="nom" name="nom" th:field="*{nom}">
+                        <br><span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"/>
                     </td>
                     <td>
                         <h4>Sexe</h4>
                     </td>
                     <td>
                         <input type="text" id="sexe" name="sexe" th:field="*{sexe}">
+                        <br><span th:if="${#fields.hasErrors('sexe')}" th:errors="*{sexe}"/>
                     </td>
                 </tr>
                 <tr align="center">
@@ -69,12 +40,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </td>
                     <td>
                         <input type="text" id="cognoms" name="cognoms" th:field="*{cognoms}">
+                         <br><span th:if="${#fields.hasErrors('cognoms')}" th:errors="*{cognoms}"/>
                     </td>
                     <td>
                         <h4>Telèfon</h4>
                     </td>
                     <td>
                         <input type="text" id="telefon" name="telefon" th:field="*{telefon}">
+                        <br><span th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"/>
                     </td>
                 </tr>
                 <tr align="center">
@@ -83,12 +56,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </td>
                     <td>
                         <input type="text" id="correu" name="correu" th:field="*{correu}">
+                        <br><span th:if="${#fields.hasErrors('correu')}" th:errors="*{correu}"/>
                     </td>
                     <td>
                         <h4>Pel·lícula guiada</h4>
                     </td>
                     <td>
                         <input type="text" id="pelGuiada" name="pelGuiada" th:field="*{pelGuiada}">
+                         <br><span th:if="${#fields.hasErrors('pelGuiada')}" th:errors="*{pelGuiada}"/>
                     </td>
                 </tr>
                 <tr align="center">
@@ -97,6 +72,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </td>
                     <td>
                         <input type="text" id="edad" name="edad" th:field="*{edad}">
+                        <br><span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"/>
+                    </td>
+                    <td>
+                        <h4>Password</h4>
+                    </td>
+                    <td>
+                        <input type="text" id="password" name="password" th:field="*{password}">
+                        <br><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+                    </td>
+                </tr>
+                <tr align="center">
+                    
+                    <td>
+                       <input type="hidden" name="rol.idrol" value="2">
                     </td>
                 </tr>
             </table>

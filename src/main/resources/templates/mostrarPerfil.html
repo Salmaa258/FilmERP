@@ -11,13 +11,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <!-- Menú superior -->
-        <table>
+        <table border="0" style="background-color: #FCF78C;">
             <tr>
                 <td>
                     <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
                 </td>
-                <td width="1610" align="right">
-                    <img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/>
+                <td width="94%" align="right">
+                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                    
+                </td>
+                <td width="6%" align="right">
+                    <a th:href="@{/logout}"><img src="/imatges/logout.png" alt="salir" width="75" height="75"/></a>
                 </td>
             </tr>
         </table>
@@ -33,7 +37,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <td>
                     <label>Nom usuari</label>
                 </td>
-                <td align="right">
+                <td align="right" th:if="${ocultar}">
                     <a th:href="@{/editarPerfil}"><img src="/imatges/editar.png" alt="Botó editar" width="38" height="38"></a>
                 </td>
             </tr>

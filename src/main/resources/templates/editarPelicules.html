@@ -10,37 +10,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <!-- Menú superior -->
-        <table border="0">
-            <tr>
-                <td>
-                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
-                </td>
-                <td>
-                    <a th:href="@{/llistatPelicules}"><img src="/imatges/home.png" alt="Home" width="75" height="75"/></a>
-                </td>
-                <td align="center">
-                    <a th:href="@{/afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
-                </td>
-                <td width="1420" align="right">
-                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                </td> 
-                <td align="center">
-                    <label>Inici</label>
-                </td>
-                <td>
-                    <a th:href="@{/afegirPelicules}"><label>Afegir pel·lícules</label></a>
-                </td>
-            </tr>
-        </table>
+        <header th:replace="~{layout/plantilla :: capceleraPelis}" />
         <hr>
 
         <h1>MODIFICAR PEL·LÍCULES</h1>
-        <form th:action="@{/guardarPelicules}" method="post" th:object="${pelicules}">
+        <form th:action="@{/guardarPelicula}" method="post" th:object="${pelicules}">
             <table cellspacing="10">
                 <tr>
                     <td>
@@ -52,8 +26,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </td>
                     <td>
                         <input type="text" id="titol" name="titol" th:field="*{titol}">
+                        <br><span th:if="${#fields.hasErrors('titol')}" th:errors="*{titol}"/>
                         <br><br>
                         <input type="text" id="sinopsi" name="sinopsi" th:field="*{sinopsi}">
+                        <br><span th:if="${#fields.hasErrors('sinopsi')}" th:errors="*{sinopsi}"/>
                     </td>
                 </tr>
             </table>
@@ -62,10 +38,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td>
                         <h2>Gènere:</h2>
                         <input type="text" id="genere" name="genere" th:field="*{genere}">
+                        <br><span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"/>
                     </td>
                     <td>
                         <h2>Any d'estrena:</h2>
-                        <input type="number" id="any" name="any" th:field="*{any}">
+                        <input type="text" id="any" name="any" th:field="*{any}">
+                        <br><span th:if="${#fields.hasErrors('any')}" th:errors="*{any}"/>
                     </td>
 
                 </tr>

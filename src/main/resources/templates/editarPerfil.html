@@ -25,7 +25,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         <h1>MODIFICAR PERFIL</h1>
 
-        <form th:action="" method="post">
+        <form action="">
             <table border="0" width="43%">
                 <tr>
                     <td rowspan="2" >
@@ -104,7 +104,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <br> 
             <a th:href="@{/mostrarPerfil}"><button>Cancelar</button></a>
-            <button>Modificar</button>
+            <input type="submit" name="editar" value="Editar"/>
         </form>
 
     </body>

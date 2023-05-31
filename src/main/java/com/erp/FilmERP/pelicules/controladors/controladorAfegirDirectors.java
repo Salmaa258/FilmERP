@@ -8,6 +8,7 @@ import com.erp.FilmERP.model.Directors;
 import com.erp.FilmERP.serveis.directors.DirectorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -24,16 +25,16 @@ public class controladorAfegirDirectors {
     @Autowired
     private DirectorService directorService;
 
+//    @Autowired //Anotació que injecta tots els mètodes i possibles dependències de GosService al controlador
+//    private RolService rolService;
     @GetMapping("/afegirDirectors")
-    public String inici(Model model) {
-        
-       // model.addAttribute("director", new Directors());
-        
-        model.addAttribute("directors", directorService.llistarDirectors());     
+    public String inici(Model model, Directors director) {
+
+        // model.addAttribute("director", new Directors());
+        model.addAttribute("director", directorService.llistarDirectors());
         return "afegirDirectors";
     }
 
-  
     @PostMapping("/guardarDirectors") //action=guardarDirectors
     public String guardarDirectors(@Valid Directors director, Errors errors) {
 
@@ -41,10 +42,33 @@ public class controladorAfegirDirectors {
             return "afegirDirectors"; //Mostrem la pàgina del formulari
         }
 
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        String a = encoder.encode(director.getPassword());
+        director.setPassword(a);
+
+
         directorService.afegirDirector(director); //Afegim el director passat per paràmetre a la base de dades
 
         return "redirect:/llistatDirectors"; //Retornem a la pàgina inicial dels directors mitjançant redirect
     }
     
-    
+    @PostMapping("/guardarDirector") //action=guardarDirectors
+    public String guardarDirector(@Valid Directors director, Errors errors) {
+
+        if (errors.hasErrors()) { //Si s'han produït errors...
+            return "editarDirectors"; //Mostrem la pàgina del formulari
+        }
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        String a = encoder.encode(director.getPassword());
+        director.setPassword(a);
+
+
+        directorService.afegirDirector(director); //Afegim el director passat per paràmetre a la base de dades
+
+        return "redirect:/llistatDirectors"; //Retornem a la pàgina inicial dels directors mitjançant redirect
+    }
+
 }

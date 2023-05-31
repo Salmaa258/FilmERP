@@ -7,36 +7,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head>
         <title>Pel·lícules</title>
         <meta charset="UTF-8">
+        
     </head>
     <body>
         <!-- Menú superior -->
-        <table border="0">
-            <tr>
-                <td>
-                    <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
-                </td>
-                <td>
-                    <img src="/imatges/home.png" alt="Home" width="75" height="75"/>
-                </td>
-                <td align="center">
-                    <a th:href="@{/afegirPelicules}"><img src="/imatges/anadir.png" alt="afegir" width="65" height="65"/></a>
-                </td>
-                <td width="1420" align="right">
-                    <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                </td> 
-                <td align="center">
-                    <label>Inici</label>
-                </td>
-                <td>
-                    <a th:href="@{/afegirPelicules}"><label>Afegir pel·lícules</label></a>
-                </td>
-            </tr>
-        </table>
+        <header th:replace="~{layout/plantilla :: capceleraPelis}" />
 
         <hr>
 

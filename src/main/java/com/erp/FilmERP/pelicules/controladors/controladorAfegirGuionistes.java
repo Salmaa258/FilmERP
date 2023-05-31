@@ -9,6 +9,7 @@ import com.erp.FilmERP.model.Guionistes;
 import com.erp.FilmERP.serveis.guionistes.GuionistaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -26,9 +27,9 @@ public class controladorAfegirGuionistes {
     private GuionistaService guionistaService;
     
     @GetMapping("/afegirGuionistes")
-    public String inici(Model model) {
+    public String inici(Model model, Guionistes guionista) {
         
-        model.addAttribute("guionistes", guionistaService.llistarGuionistes());     
+        model.addAttribute("guionista", guionistaService.llistarGuionistes());     
         
         return "afegirGuionistes";
     }
@@ -39,6 +40,28 @@ public class controladorAfegirGuionistes {
         if (errors.hasErrors()) { //Si s'han produït errors...
             return "afegirGuionistes"; //Mostrem la pàgina del formulari
         }
+        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        
+        String a = encoder.encode(guionista.getPassword());
+        guionista.setPassword(a);
+
+        guionistaService.afegirGuionista(guionista); //Afegim el guionista passat per paràmetre a la base de dades
+
+        return "redirect:/llistatGuionistes"; //Retornem a la pàgina inicial dels guionistes mitjançant redirect
+    }
+    
+    @PostMapping("/guardarGuionista") //action=guardarGuionistes
+    public String guardarGuionista(@Valid Guionistes guionista, Errors errors) {
+
+        if (errors.hasErrors()) { //Si s'han produït errors...
+            return "editarGuionistes"; //Mostrem la pàgina del formulari
+        }
+        
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        
+        String a = encoder.encode(guionista.getPassword());
+        guionista.setPassword(a);
 
         guionistaService.afegirGuionista(guionista); //Afegim el guionista passat per paràmetre a la base de dades
 

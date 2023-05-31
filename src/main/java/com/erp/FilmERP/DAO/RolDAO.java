@@ -4,13 +4,16 @@
  */
 package com.erp.FilmERP.DAO;
 
-import com.erp.FilmERP.model.Usuari;
+import com.erp.FilmERP.model.Directors;
+import com.erp.FilmERP.model.Rol;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author salma
  */
-public interface UsuariDAO extends CrudRepository<Usuari,String>{
-    Usuari findBynom(String username);
+
+public interface RolDAO extends CrudRepository<Rol,String>{
+   // List<Directors> findByCorreu(String correu);
 }

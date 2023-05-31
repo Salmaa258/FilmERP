@@ -15,20 +15,20 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author salma
  */
-@Service 
-public class DirectorService implements DirectorServiceInterface{
+@Service
+public class DirectorService implements DirectorServiceInterface {
 
     @Autowired
     private DirectorsDAO directors;
-    
+
     @Override
     public List<Directors> llistarDirectors() {
         return (List<Directors>) directors.findAll();
     }
 
-    @Override    
+    @Override
     public void afegirDirector(Directors directors) {
-       this.directors.save(directors);
+        this.directors.save(directors);
     }
 
     @Override
@@ -37,9 +37,15 @@ public class DirectorService implements DirectorServiceInterface{
     }
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public Directors cercarDirector(Directors directors) {
-       return this.directors.findById(directors.getCorreu()).orElse(null);   
+        return this.directors.findById(directors.getCorreu()).orElse(null);
     }
+
     
+    @Transactional(readOnly = true)
+    public Directors cercarDirectorPorCorreo(String correo) {
+        return this.directors.findById(correo).orElse(null);
+    }
+
 }

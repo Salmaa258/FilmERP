@@ -7,6 +7,8 @@ package com.erp.FilmERP.pelicules.controladors;
 import com.erp.FilmERP.model.Directors;
 import com.erp.FilmERP.serveis.directors.DirectorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,16 @@ public class controladorLlistatDirectors {
     
     @GetMapping("/llistatDirectors")
     public String inici(Model model) {
+        
+        org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        boolean esTipoX = auth.getAuthorities().contains(new SimpleGrantedAuthority("Administrador"));
+        if (esTipoX) {
+            // Afegir un atribut al model per indicar que s'ha de mostrar la columna X
+            model.addAttribute("ocultar", true);
+        } else {
+            model.addAttribute("ocultar", false);
+        }
         
         //findAll retorna el llistat d'objectes directors guardats en la taula directors de la BBDD  
         model.addAttribute("directors", directorService.llistarDirectors());

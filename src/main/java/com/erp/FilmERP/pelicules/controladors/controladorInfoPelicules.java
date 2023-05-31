@@ -7,6 +7,8 @@ package com.erp.FilmERP.pelicules.controladors;
 import com.erp.FilmERP.model.Pelicules;
 import com.erp.FilmERP.serveis.pelicules.PeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,17 @@ public class controladorInfoPelicules {
     private PeliculaService peliculaService;
     
     @GetMapping("/infoPelicules")
-    public String inici() {
+    public String inici(Model model) {
+        
+        
+//        boolean esTipoP = auth.getAuthorities().contains(new SimpleGrantedAuthority("Guionistes"));
+//        if (esTipoP) {
+//            // Afegir un atribut al model per indicar que s'ha de mostrar la columna X
+//            model.addAttribute("ocultarA", true);
+//        } else {
+//            model.addAttribute("ocultarA", false);
+//        }
+        
         return "infoPelicules";
     }
     

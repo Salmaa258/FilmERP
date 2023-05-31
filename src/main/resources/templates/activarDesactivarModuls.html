@@ -11,21 +11,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <!-- Menú superior -->
-        <table border="0">
+        <table border="0" style="background-color: #BBEEA2;">
             <tr>
                 <td>
                     <a th:href="@{/moduls}"><img src="/imatges/logo.png" alt="Logo" width="130" height="110"/></a>
                 </td>
                 <td>
-                   <img src="/imatges/home.png" alt="Home" width="75" height="75"/>
+                    <img src="/imatges/home.png" alt="Home" width="75" height="75"/>
                 </td>
-                <td width="1530" align="right">
+                <td width="94%" align="right">
                     <a th:href="@{/mostrarPerfil}"><img src="/imatges/imgPerfil.png" alt="imatgePerfil" width="75" height="75"/></a>
+                </td>
+                <td width="6%" align="right">
+                    <a th:href="@{/logout}"><img src="/imatges/logout.png" alt="salir" width="75" height="75"/></a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    
+
                 </td> 
                 <td align="center">
                     <label>Inici</label>
@@ -33,9 +36,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </tr>
         </table>
         <hr>
-        
+
         <h1>ACTIVACIÓ I DESACTIVACIÓ DELS MÒDULS</h1>
-        
+
         <table border="0">
             <tr>
                 <td>
@@ -108,6 +111,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </td>
             </tr>
         </table>
-        
+
     </body>
 </html>
