@@ -14,3 +14,7 @@ Link a la memoria [aquí](https://docs.google.com/document/d/1hZQNKwx1ao709r6Xv9
 
 ### Video DEMO
 Link al video demo [aquí](https://drive.google.com/file/d/1Yche7BHqoA-K1zwfMQ8Il4Z89PRpfSsg/view?usp=drive_link). 
+
+
+### Power Point Presentació
+Link al Power Point [aquí](https://docs.google.com/presentation/d/1ttk3xOXpqJ3Tai8gbrIk2ue4KQgtgTqo-aW-y_FvLLQ/edit?usp=sharing).
